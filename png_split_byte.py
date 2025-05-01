@@ -3,9 +3,9 @@ import os
 
 # === file path config ===
 parent_dir = os.path.dirname(__file__)
-file_name = "your_file_name.png"  # Replace with your image filename
+file_name = "your.png"  # Replace with your image filename
 file_path = os.path.join(parent_dir, file_name)
-base_name = file_name[:-5]
+base_name = "\\" + file_name[:-4]
 
 # === Load the image as RGB ===
 img = Image.open(file_path).convert("RGB")
@@ -70,8 +70,8 @@ check_x24_byte = []
 #     else:
 #         check_x24_byte.append(byte)
 # print(check_x24_byte)
-x24_bit_file = os.path.join(parent_dir, "x24_bit_color.py")
-
+x24_bit_file = parent_dir + base_name + "_x24.py"
+print(x24_bit_file)
 check_x26_byte = []
 # for byte in x26_image_data:
 #     if byte in check_x26_byte:
@@ -79,8 +79,8 @@ check_x26_byte = []
 #     else:
 #         check_x26_byte.append(byte)
 # print(check_x26_byte)
-x26_bit_file = os.path.join(parent_dir, "x26_bit_color.py")
-
+x26_bit_file = parent_dir + base_name + "_x26.py"
+print(x26_bit_file)
 
 with open(x24_bit_file, "w") as f:
     f.write("x24_image_data = bytearray([\n")
